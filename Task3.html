@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Draw</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .flip-card {
+            background-color: transparent;
+            width: 215px;
+            height: 300px;
+            perspective: 1000px;
+            border: none;
+            /* padding-right: 15px; */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            color: black;
+        }
+
+        .flip-card-back {
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .luckyNumber {
+            font-size: 120px;
+            color: rgb(43, 43, 43);
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: rgb(124, 122, 122);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .custom-container1 {
+            background-image: linear-gradient(to bottom right, rgb(10, 43, 15), rgb(0, 255, 170));
+        }
+
+        .custom-container2 {
+            background-image: linear-gradient(to bottom right, rgb(255, 251, 13), rgb(255, 123, 0));
+        }
+
+        .custom-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 70px;
+            letter-spacing: 2px;
+        }
+
+        .result{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="col-md-8 text-center mx-auto mt-4 pb-4 border border-dark rounded custom-container1">
+            <h4 class="p-3 custom-heading">Lucky Draw</h4>
+            <div class="card-deck d-flex justify-content-center ">
+                <div class="card flip-card" onclick="numGenerator(1)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front ">
+                            <img src="assets/img/front2.png" style="width:215px; border-radius: 10px ;">
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="assets/img/back2.jpg" style="width:215px; height: 300px; border-radius: 10px ;">
+                            <p class="luckyNumber" id="luckyNumber1"> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card flip-card" onclick="numGenerator(2)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front ">
+                            <img src="assets/img/front2.png" style="width:215px; border-radius: 10px ;">
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="assets/img/back2.jpg" style="width:215px; height: 300px; border-radius: 10px ;">
+                            <p class="luckyNumber" id="luckyNumber2"> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card flip-card" onclick="numGenerator(3)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front ">
+                            <img src="assets/img/front2.png" style="width:215px; border-radius: 10px ;">
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="assets/img/back2.jpg" style="width:215px; height: 300px; border-radius: 10px ;">
+                            <p class="luckyNumber" id="luckyNumber3"> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 text-center mx-auto mt-4 pb-4 border border-dark rounded custom-container2">
+            <h4 class="p-3 custom-heading">Result</h4>
+            <div class="col-md-12">
+                <div class="row d-flex justify-content-center">
+                    <div class="col">
+                        <button class="btn btn-primary" onclick="result()">Check Result</button>
+                    </div>
+                    <div class="col">
+                        <p class="result" id="result"> </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+        });
+
+        function numGenerator(n) {
+            var cardNumber = n;
+            var x = Math.floor((Math.random() * 3) + 1);
+            // $('.luckyNumber').remove();
+            $(`#luckyNumber${cardNumber}`).html(x);
+        }
+
+        function result() {
+            var a = parseInt(document.getElementById("luckyNumber1").textContent);
+            var b = parseInt(document.getElementById("luckyNumber2").textContent);
+            var c = parseInt(document.getElementById("luckyNumber3").textContent);
+            if (a = b) {
+                if (b == c) {
+                    $('#result').html("Winner");
+                } else {
+                    $('#result').html("Looser");
+                }
+            } else {
+                $('#result').html("Looser");
+            }
+
+
+            // $('#result').html(a);
+        }
+    </script>
+</body>
+
+</html>

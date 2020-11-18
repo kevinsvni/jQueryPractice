@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add n Inputs</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center mt-4 col-md-4 border border-dark rounded">
+        <form action="" method="post">
+            <label for="input">Enter Number: </label>
+            <div class="d-flex">
+                <input type="number" name="input" id="input" class="m-3" onchange="addRows(parseInt(document.getElementById('input').value))">
+                <input type="button" value="ADD" class="btn btn-primary m-3" onclick="addRows(parseInt(document.getElementById('input').value))">
+            </div>
+        </form>
+    </div>
+
+    <div class="container text-center mt-4 col-md-6 border border-dark rounded" name="myNewElements" id="myNewElements">
+        <pre id="message" class="m-2"> </pre>
+
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        
+        function addRows(n) {
+            if (n==1){
+                $('#message').text(`You have added ${n} element. `);
+            }else{
+                $('#message').text(`You have added ${n} elements.`);
+            }
+            
+            $('.remove').remove();
+            var i;
+            for (i=1; i<=n; i++){
+                $('#myNewElements').append(`
+                <div class="d-flex justify-content-center remove">
+                    <input type="text" class="my-3">
+                    <input type="button" name="" id="" value="&times;" class="btn btn-danger m-3">
+                </div> 
+            `);
+            }
+        }
+    </script>
+</body>
+
+</html>

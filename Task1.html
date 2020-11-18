@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Tasks</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h3>Task 1: </h3>
+    <input type="text" name="valHere" id="valHere">
+    <input type="text" id="valFrom" value="" placeholder="Type value here." />
+    <br /><br />
+    <button id="b1">Hello</button>
+    <button id="b2">World</button>
+    <button id="b3">Set Value</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h3>Task 2: </h3>
+    <input type="text" name="" id="" style="margin: 5px;">: 1st<br />
+    <input type="text" name="" id="" style="margin: 5px;">: 2nd<br />
+    <input type="text" name="" id="" style="margin: 5px;">: 3rd<br />
+    <input type="text" name="" id="" style="margin: 5px;">: 4th<br />
+    <input type="text" name="" id="" style="margin: 5px;">: 5th<br />
+    <button id="b4">Change CSS of</button>
+    <input type="text" name="" id="chgCss" style="margin: 5px;">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h3>Task 3: </h3>
+    <form class="was-validated">
+        <div class="form-group">
+          <input type="text" class="form-control w-25" id="" >
+          <button>+</button>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control w-25" id="" >
+          <button>+</button>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h3>Task 4: </h3>
+    <div>
+        <input type="text" name="" id="">
+        <button class="add" id="add">+</button>
+        <br />
+        <br />
+        <button>Submit</button>
+    </div>
+
+
+
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script>
+        // Task 1
+        $('#b1').click(function (event) {
+            $('#valHere').val("Hello");
+        });
+        $('#b2').click(function (event) {
+            $('#valHere').val("World");
+        });
+        $('#b3').click(function (event) {
+            entVal = document.getElementById('valFrom').value;
+            $('#valHere').val(entVal);
+        });
+
+        // Task 2
+        $('#b4').click(function (event) {
+            // var n = $(':input:text').length;
+            // window.alert(n);
+            var num1 = parseInt(document.getElementById("chgCss").value);
+            var num = num1 + 2;
+            $("input:nth-of-type(" + num + ")").css({ 'background-color': '#F7AFA0', 'border-radius': '5px', 'border': '2px solid #3442F3' });
+        });
+
+        // Task 3
+        $('#b5').click(function (event) {
+
+        });
+
+        //Task 4
+        $('#add').click(function (event) {
+
+        });
+    </script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
